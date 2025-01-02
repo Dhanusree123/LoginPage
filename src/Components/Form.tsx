@@ -2,17 +2,18 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Form = () => {
-  const [email, setEmail] = useState<string>("");
+  const [, setEmail] = useState([]);
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const maildata = (e.target as HTMLFormElement).email.value;
 
-    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userEmail", maildata);
     localStorage.setItem("userPassword", password);
 
-    setEmail("");
+    setEmail(maildata);
     setPassword("");
 
     alert("User data stored in local storage!");
@@ -25,15 +26,8 @@ const Form = () => {
         <h1>User Login</h1>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="email">Email:</label>
-            <input
-              className="mail-input"
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+            <label>Email:</label>
+            <input className="mail-input" type="email" name="email" required />
           </div>
 
           <div>
@@ -41,9 +35,7 @@ const Form = () => {
             <input
               className="passwrd-input"
               type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
               required
             />
           </div>

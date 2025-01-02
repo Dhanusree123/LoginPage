@@ -1,11 +1,18 @@
+import { useEffect, useState } from "react";
+
 const Data = () => {
-  const id = localStorage.getItem("UserEmail");
-  const passwrd = localStorage.getItem("UserPassword");
+  const [email, setEmail] = useState<string | null>(null);
+  useEffect(() => {
+    const storedvalue = localStorage.getItem("userEmail");
+    if (storedvalue) {
+      setEmail(storedvalue);
+    }
+  }, []);
+
   return (
     <>
       <div>
-        <h1>{id}</h1>
-        <h1>{passwrd}</h1>
+        <h1>{email}</h1>
         <h2>Welcome</h2>
       </div>
     </>
