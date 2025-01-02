@@ -1,0 +1,39 @@
+.bg-block{
+display: grid;
+justify-content: center;
+align-items: center;
+background-image: url('./assets/bgimg.jpg');
+background-repeat: no-repeat;
+background-position: center;
+background-size: 100%;
+}
+.login-form{
+  height:80vh;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  padding:50px;
+}
+.login-btn{
+  padding:20px;
+  border-radius: 10px;;
+  background-color: rgba(7, 34, 36, 0.2);
+  border:none;
+  font-family:monospace;
+  margin:15px;
+  color:white;
+}
+input{
+  padding:10px;
+  margin:10px;
+  border-radius: 10px;
+  border:1px solid rgb(100,100,100); 
+}
+h1{
+  margin-bottom: 50px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:white
+}
+label{
+  color:white;
+}
